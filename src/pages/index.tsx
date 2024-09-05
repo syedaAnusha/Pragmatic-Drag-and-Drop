@@ -8,9 +8,9 @@ export default function Home() {
       {mockData.columns.map((data) => (
         <>
           <Column
-            title={data.col_title}
-            cardContent={data.cards}
-            key={data.col_id}
+            col_id={data.col_id}
+            col_title={data.col_title}
+            cards={data.cards}
           />
         </>
       ))}
