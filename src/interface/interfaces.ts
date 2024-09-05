@@ -6,5 +6,10 @@ export interface CardContentProps {
 
 export interface ColumnContentProps {
   col_id: string | undefined;
+  col_title: string;
   cards: CardContentProps[];
+}
+
+export interface trelloContent {
+  columns: ColumnContentProps[];
 }

@@ -17,7 +17,7 @@ export const Column = ({ title, cardContent }: DefaultColumnProps) => {
       aria-label="column"
       className="w-[25%] border-2 rounded-md bg-slate-300 p-2.5 flex flex-col gap-2"
     >
-      <h1 aria-label="column-title" className="text-center text-[1.2rem]">
+      <h1 aria-label="column-title" className="text-center text-[2rem]">
         {title}
       </h1>
       {cardContent.map((card) => (
