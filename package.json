@@ -12,7 +12,8 @@
     "@atlaskit/pragmatic-drag-and-drop": "^1.3.0",
     "next": "14.2.8",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tiny-invariant": "^1.3.3"
   },
   "devDependencies": {
     "@types/node": "^20",
