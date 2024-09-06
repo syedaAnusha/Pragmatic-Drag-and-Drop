@@ -1,5 +1,5 @@
 //* React Import
-import React from "react";
+import { Fragment } from "react";
 
 //* CardProps Import
 import { CardContentProps } from "@/interface/interfaces";
@@ -20,10 +20,10 @@ export const Column = ({ title, cardContent }: ColumnProps) => {
       <h1 aria-label="column-title" className="text-center text-[2rem]">
         {title}
       </h1>
-      {cardContent.map((card) => (
-        <>
+      {cardContent.map((card, index) => (
+        <Fragment key={index}>
           <Card Content={card} />
-        </>
+        </Fragment>
       ))}
     </div>
   );
