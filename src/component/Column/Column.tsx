@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 //* React Import
 import { Fragment, useEffect, useRef, useState } from "react";
 
@@ -11,11 +12,12 @@ import invariant from "tiny-invariant";
 
 //* interface ColumnProps
 interface ColumnProps {
-  title: string;
-  cardContent: CardContentProps[];
+  columnId: number;
+  name: string;
+  content: CardContentProps[];
 }
 
-export const Column = ({ title, cardContent }: ColumnProps) => {
+export const Column = ({ columnId, name, content }: ColumnProps) => {
   //* use Hooks
   const ref = useRef(null);
   const [isDraggedOver, setIsDraggedOver] = useState<boolean>(false);
@@ -25,6 +27,7 @@ export const Column = ({ title, cardContent }: ColumnProps) => {
     invariant(el);
     return dropTargetForElements({
       element: el,
+      getData: () => ({ columnId }),
       onDragEnter: () => setIsDraggedOver(true),
       onDragLeave: () => setIsDraggedOver(false),
       onDrop: () => setIsDraggedOver(false),
@@ -39,12 +42,10 @@ export const Column = ({ title, cardContent }: ColumnProps) => {
       }  p-2.5 flex flex-col gap-2 `}
     >
       <h1 aria-label="column-title" className="text-center text-[2rem]">
-        {title}
+        {name}
       </h1>
-      {cardContent.map((card, index) => (
-        <Fragment key={index}>
-          <Card Content={card} />
-        </Fragment>
+      {content.map((card) => (
+        <Card key={card.id} content={card} />
       ))}
     </div>
   );

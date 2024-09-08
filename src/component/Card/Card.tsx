@@ -10,10 +10,10 @@ import { CardContentProps } from "@/interface/interfaces";
 
 //* interface CardProps
 interface CardProps {
-  Content: CardContentProps;
+  content: CardContentProps;
 }
 
-export const Card = ({ Content }: CardProps) => {
+export const Card = ({ content }: CardProps) => {
   //* use Hooks
   const ref = useRef(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -25,6 +25,7 @@ export const Card = ({ Content }: CardProps) => {
       element: el,
       onDragStart: () => setIsDragging(true),
       onDrop: () => setIsDragging(false),
+      getInitialData: () => ({ card: content }),
     });
   }, []);
 
@@ -37,9 +38,9 @@ export const Card = ({ Content }: CardProps) => {
       }`}
     >
       <section aria-label="card-title" className="text-[1.5rem]">
-        {Content.card_title}
+        {content.title}
       </section>
-      <p aria-label="card-description">{Content.card_description}</p>
+      <p aria-label="card-description">{content.description}</p>
     </div>
   );
 };

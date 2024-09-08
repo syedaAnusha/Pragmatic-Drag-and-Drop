@@ -1,14 +1,14 @@
 //* interfaces
 export interface CardContentProps {
-  card_id: string | undefined;
-  card_title: string;
-  card_description: string;
+  id: number;
+  title: string;
+  description: string;
 }
 
 export interface ColumnContentProps {
-  col_id: string | undefined;
-  col_title: string;
-  cards: CardContentProps[];
+  id: number;
+  name: string;
+  content: CardContentProps[];
 }
 
 export interface trelloContent {

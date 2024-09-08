@@ -4,73 +4,73 @@ import { trelloContent } from "@/interface/interfaces";
 export const mockData: trelloContent = {
   columns: [
     {
-      col_id: "column_1",
-      col_title: "Backglog",
-      cards: [
+      id: 1,
+      name: "Backglog",
+      content: [
         {
-          card_id: "1",
-          card_title: "Create the cards",
-          card_description:
+          id: 1,
+          title: "Create the cards",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
         {
-          card_id: "2",
-          card_title: "Place the cards in the columns",
-          card_description:
+          id: 2,
+          title: "Place the cards in the columns",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
         {
-          card_id: "3",
-          card_title: "Implement card dragging",
-          card_description:
+          id: 3,
+          title: "Implement card dragging",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
         {
-          card_id: "4",
-          card_title: "Implement drop card",
-          card_description:
+          id: 4,
+          title: "Implement drop card",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
         {
-          card_id: "5",
-          card_title: "Implement drag & drop column",
-          card_description:
-            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
-        },
-      ],
-    },
-    {
-      col_id: "column_2",
-      col_title: "Doing",
-      cards: [
-        {
-          card_id: "6",
-          card_title: "Delete a card",
-          card_description:
+          id: 5,
+          title: "Implement drag & drop column",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
       ],
     },
     {
-      col_id: "column_3",
-      col_title: "Done",
-      cards: [
+      id: 2,
+      name: "Doing",
+      content: [
         {
-          card_id: "7",
-          card_title: "Create boilerplate",
-          card_description:
+          id: 6,
+          title: "Delete a card",
+          description:
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Done",
+      content: [
+        {
+          id: 7,
+          title: "Create boilerplate",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
         {
-          card_id: "8",
-          card_title: "Define data model",
-          card_description:
+          id: 8,
+          title: "Define data model",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
         {
-          card_id: "9",
-          card_title: "Create columns",
-          card_description:
+          id: 9,
+          title: "Create columns",
+          description:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi veritatis id perspiciatis, neque saepe",
         },
       ],
