@@ -28,12 +28,12 @@ export const TrelloBoard: React.FC = () => {
   useEffect(() => {
     return monitorForElements({
       onDrop({ source, location }) {
-        const destination = location.current.dropTargets[0];
-        if (!destination) {
+        const destinationColumn = location.current.dropTargets[0];
+        if (!destinationColumn) {
           return;
         }
         const card = source.data.card as CardContentProps;
-        const columnId = destination.data.columnId as number;
+        const columnId = destinationColumn.data.columnId as number;
         setTrelloContent((trelloContent) =>
           moveCard(card, trelloContent, columnId)
         );
@@ -42,7 +42,7 @@ export const TrelloBoard: React.FC = () => {
   }, [trelloContent]);
   return (
     <div
-      className={`m-12 flex flex-1 gap-2 justify-evenly p-2 select-none bg-slate-400`}
+      className={`m-12 flex flex-1 gap-2 justify-evenly p-2 select-none bg-slate-400 h-[60rem]`}
     >
       {trelloContent.columns.map((data) => (
         <Column
