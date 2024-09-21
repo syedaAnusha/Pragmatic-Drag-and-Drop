@@ -34,8 +34,9 @@ export const TrelloBoard: React.FC = () => {
         }
         const card = source.data.card as CardContentProps;
         const columnId = destinationColumn.data.columnId as number;
+        const destinationCardId = destinationColumn.data.cardId as number;
         setTrelloContent((trelloContent) =>
-          moveCard(card, trelloContent, columnId)
+          moveCard(card, trelloContent, { columnId, cardId: destinationCardId })
         );
       },
     });

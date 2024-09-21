@@ -6,6 +6,8 @@ import {
 } from "@/interface/interfaces";
 import { produce } from "immer";
 
+type DropArgs = { columnId: number; cardId: number };
+
 export const removeCardFromColumn = (
   card: CardContentProps,
   trelloContent: trelloContent
@@ -28,30 +30,22 @@ export const dropCardAfter = (
   destinationCardId: number,
   destinationColumn: ColumnContentProps
 ): ColumnContentProps => {
-  if (destinationCardId === -1) {
-    return produce(destinationColumn, (draft) => {
-      draft.content.push(originCard);
-    });
-  }
-  return produce(
-    destinationColumn,
-    (draft: { content: CardContentProps[] }) => {
-      const index = draft.content.findIndex(
-        (card: { id: number }) => card.id === destinationCardId
-      );
-      draft.content.splice(index, 0, originCard);
-    }
-  );
+  return produce(destinationColumn, (draft) => {
+    const index = draft.content.findIndex(
+      (card) => card.id === destinationCardId
+    );
+    draft.content.splice(index, 0, originCard);
+  });
 };
 
 export const addCardToColumn = (
   card: CardContentProps,
-  columnId: number,
+  dropArgs: DropArgs,
   trelloContent: trelloContent
 ): trelloContent => {
   const newColumns = trelloContent.columns.map((column) => {
-    if (column.id === columnId) {
-      return dropCardAfter(card, -1, column);
+    if (column.id === dropArgs.columnId) {
+      return dropCardAfter(card, dropArgs.cardId, column);
     }
     return column;
   });
@@ -64,8 +58,8 @@ export const addCardToColumn = (
 export const moveCard = (
   card: CardContentProps,
   trelloContent: trelloContent,
-  destinationColumnId: number
+  dropArgs: DropArgs
 ): trelloContent => {
   const newTrelloBoardContent = removeCardFromColumn(card, trelloContent);
-  return addCardToColumn(card, destinationColumnId, newTrelloBoardContent);
+  return addCardToColumn(card, dropArgs, newTrelloBoardContent);
 };

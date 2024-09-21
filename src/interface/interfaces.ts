@@ -16,4 +16,5 @@ export interface trelloContent {
 }
 
 //* By calling this function, it instantiates & return a defaultTrelloBoard with colums:[]
+//* Factory pattern
 export const createDefaultTrelloBoard = (): trelloContent => ({ columns: [] });
