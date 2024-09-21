@@ -11,6 +11,7 @@ import invariant from "tiny-invariant";
 
 //* CardProps Import
 import { CardContentProps } from "@/interface/interfaces";
+import { GhostCard } from "./GhostCard";
 
 //* interface CardProps
 interface CardProps {
@@ -48,17 +49,20 @@ export const Card = ({ content, columnId }: CardProps) => {
   }, []);
 
   return (
-    <div
-      aria-label="card"
-      ref={ref}
-      className={`border-2 w-fit border-dotted rounded-md border-cyan-600 cursor-grab p-2.5 ${
-        isDragging ? "opacity-10" : "opacity-100"
-      } ${isDraggedOver ? "bg-slate-500" : "bg-gray-300"}`}
-    >
-      <section aria-label="card-title" className="text-[1.5rem]">
-        {content.title}
-      </section>
-      <p aria-label="card-description">{content.description}</p>
-    </div>
+    <>
+      <GhostCard show={isDraggedOver} />
+      <div
+        aria-label="card"
+        ref={ref}
+        className={`border-2 w-fit border-dotted rounded-md border-cyan-600 cursor-grab p-2.5 ${
+          isDragging ? "opacity-10" : "opacity-100"
+        } ${isDraggedOver ? "bg-slate-500" : "bg-gray-300"}`}
+      >
+        <section aria-label="card-title" className="text-[1.5rem]">
+          {content.title}
+        </section>
+        <p aria-label="card-description">{content.description}</p>
+      </div>
+    </>
   );
 };
